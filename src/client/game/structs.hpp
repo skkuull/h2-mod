@@ -14,11 +14,14 @@ namespace game
 		vec3_t velocity;
 		char __pad1[0xE870];
 		char flags;
+		char __pad2[0x3BC];
 	};
+
+	static_assert(sizeof(gclient_s) == 60616);
 
 	struct client_t
 	{
-		char __pad0[13508];
+		char __pad0[0xD310];
 	};
 
 	enum $219904913BC1E6DB920C78C8CC0BD8F1
@@ -85,8 +88,7 @@ namespace game
 		char __pad6[0x188];
 	}; // size = 760
 
-	//auto a = sizeof(gentity_s);
-
+	static_assert(offsetof(gentity_s, client) == 280);
 	static_assert(sizeof(gentity_s) == 760);
 
 	struct pathlink_s
@@ -124,6 +126,16 @@ namespace game
 		unsigned int nodeCount;
 		pathnode_t* nodes;
 		// ... 
+	};
+
+	struct level_locals_t
+	{
+		gclient_s* clients;
+		char __pad0[0x8];
+		gentity_s* gentities;
+		int num_entities;
+		char __pad1[0x58];
+		int maxclients;
 	};
 
 	struct GfxImage;

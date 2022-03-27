@@ -30,6 +30,7 @@ namespace game
 	WEAK symbol<void(char const* finalMessage)> Com_Shutdown{0x1405A62C0};
 	WEAK symbol<void()> Com_Quit_f{0x1405A50D0};
 	WEAK symbol<bool()> Com_InFrontend{0x140328BD0};
+	WEAK symbol<void(void* ptr, int value, size_t num)> Com_Memset{0x14089CFC0};
 	WEAK symbol<void()> Quit{0x1405A52A0};
 
 	WEAK symbol<void(XAssetType type, void(__cdecl* func)(game::XAssetHeader, void*), const void* inData, bool includeOverride)>
@@ -168,6 +169,8 @@ namespace game
 	WEAK symbol<int> num_entities{0x1455CC738};
 	WEAK symbol<PathData> pathData{0x1452CCDA0};
 	WEAK symbol<int> vehicle_pathnode_count{0x14D009A30};
+	WEAK symbol<level_locals_t> level{0x1455CC720};
+	WEAK symbol<int> dyn_ent_anchor_count{0x14AD11950};
 
 	WEAK symbol<DWORD> threadIds{0x14B11DC80};
 
